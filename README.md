@@ -1,6 +1,3 @@
-Certainly! Below is a template for a README file for a MERN stack e-commerce application with Tailwind CSS:
-
----
 
 # MERN E-Commerce App with Tailwind CSS
 
