@@ -28,6 +28,7 @@ export default function Category() {
     fetchCategories();
   },[]);
 
+
   async function handler(e){
     e.preventDefault();
     try{
@@ -35,7 +36,7 @@ export default function Category() {
         name,
       });
 
-      
+
       if(data.success){
         toast.success("Category created successfully");
         fetchCategories();
