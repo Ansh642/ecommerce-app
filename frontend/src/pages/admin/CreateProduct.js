@@ -71,7 +71,6 @@ export default function CreateProduct() {
     }
   };
 
-  
 
 
   return (
@@ -119,6 +118,7 @@ export default function CreateProduct() {
           <label htmlFor="quantity" className="block text-sm font-semibold text-gray-600">
             Quantity
           </label>
+          
           <input
             type="text"
             id="quantity"

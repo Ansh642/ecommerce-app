@@ -11,6 +11,7 @@ export default function AllUsers() {
     try{
       const {data} = await axios.get('/api/v1/auth/all-users');
 
+    
       if(data.success)
       {
         setusers(data.allUsers);
@@ -25,6 +26,7 @@ export default function AllUsers() {
   useEffect( ()=>{
     fetchUsers();
   },[])
+
 
   
   return (

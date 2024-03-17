@@ -16,6 +16,7 @@ export default function Category() {
         setcategories(data.allCategories);
       }
 
+
     }
     catch(err){
       console.log(err);
@@ -34,6 +35,7 @@ export default function Category() {
         name,
       });
 
+      
       if(data.success){
         toast.success("Category created successfully");
         fetchCategories();
