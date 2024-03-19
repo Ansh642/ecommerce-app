@@ -7,7 +7,7 @@ export default function Order() {
   const {order}= useContext(CartContext);
 
   return (
-    <div className='flex h-screen bg-gray-100'>
+    <div className='flex h-fit bg-gray-100'>
 
       <nav className="flex-shrink-0 w-64 p-4 bg-white border-r border-gray-200">
         {/* Sidebar content */}
