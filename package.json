@@ -1,54 +1,30 @@
 {
-  "name": "react-tailwind-css-starter-pack",
-  "proxy": "http://localhost:8080",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@headlessui/react": "^1.7.17",
-    "@heroicons/react": "^2.1.1",
-    "axios": "^1.6.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^4.12.0",
-    "react-router-dom": "^6.21.1",
-    "react-scripts": "5.0.1",
-    "react-spring": "^9.7.3",
-    "react-toastify": "^9.1.3",
-    "web-vitals": "^2.1.4"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/thepranaygupta/react-tailwind-css-starter-pack.git"
-  },
-  "author": "Pranay Gupta",
-  "bugs": {
-    "url": "https://github.com/thepranaygupta/react-tailwind-css-starter-pack/issues"
-  },
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "node index.js",
+    "dev": "nodemon index.js",
+    "frontend": "npm start --prefix ./frontend",
+    "start": "concurrently \"npm run dev\" \"npm run frontend\""
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "tailwindcss": "^3.2.7"
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cloudinary": "^1.41.1",
+    "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.3",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.0.2",
+    "react-hot-toast": "^2.4.1",
+    "slugify": "^1.6.6"
   }
 }
