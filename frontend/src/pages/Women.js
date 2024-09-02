@@ -17,7 +17,7 @@ export default function Women() {
     const getAllProducts = async () => {
       try 
       {
-        const { data } = await axios.post("/api/v1/product/get-product",{
+        const { data } = await axios.post("https://ecommerce-app-za0t.onrender.com/api/v1/product/get-product",{
             category 
         });
         setproducts(data.products);

@@ -19,7 +19,7 @@ export default function Login() {
   {
     e.preventDefault();
     try{
-      const response = await axios.post("/api/v1/auth/login",{
+      const response = await axios.post("https://ecommerce-app-za0t.onrender.com/api/v1/auth/login",{
         email,
         password
       });

@@ -34,7 +34,7 @@ export default function Navbar() {
     e.preventDefault();
 
     try {
-      const { data } = await axios.get(`/api/v1/product/search/${search.keywords}`);
+      const { data } = await axios.get(`https://ecommerce-app-za0t.onrender.com/api/v1/product/search/${search.keywords}`);
       setsearch({ ...search, result: data.similarProducts });
       navigate("/search");
     } 

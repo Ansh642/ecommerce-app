@@ -9,7 +9,7 @@ export default function AllUsers() {
   async function fetchUsers()
   {
     try{
-      const {data} = await axios.get('/api/v1/auth/all-users');
+      const {data} = await axios.get('https://ecommerce-app-za0t.onrender.com/api/v1/auth/all-users');
 
     
       if(data.success)

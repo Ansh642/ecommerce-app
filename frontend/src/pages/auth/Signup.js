@@ -18,7 +18,7 @@ export default function Signup() {
   {
     e.preventDefault();
     try{
-    const response=await axios.post('/api/v1/auth/register',{name,
+    const response=await axios.post('https://ecommerce-app-za0t.onrender.com/api/v1/auth/register',{name,
       email,
       password,
       phoneNo,

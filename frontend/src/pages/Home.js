@@ -15,7 +15,7 @@ export default function Home() {
 
   const getAllProducts = async () => {
     try {
-      const { data } = await axios.get("/api/v1/product/get-products");
+      const { data } = await axios.get("https://ecommerce-app-za0t.onrender.com/api/v1/product/get-products");
       if (data && data.allProducts) {
         setproducts(data.allProducts);
       } else {

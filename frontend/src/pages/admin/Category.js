@@ -10,7 +10,7 @@ export default function Category() {
 
   const fetchCategories = async()=>{
     try{
-      const {data} = await axios.get('/api/v1/category/categories');
+      const {data} = await axios.get('https://ecommerce-app-za0t.onrender.com/api/v1/category/categories');
       if(data.success)
       {
         setcategories(data.allCategories);
