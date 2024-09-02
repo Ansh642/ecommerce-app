@@ -1,6 +1,6 @@
 {
   "name": "react-tailwind-css-starter-pack",
-  "proxy": "http://localhost:8080",
+  "proxy": "https://ecommerce-app-za0t.onrender.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
