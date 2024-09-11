@@ -24,12 +24,11 @@ import Women from "./pages/Women";
 import Mens from "./pages/Mens";
 import Search from "./pages/Search";
 import Cart from "./pages/Cart";
-import Checkout from "./pages/Checkout";
 import OrderConfirmationPage from "./pages/OrderConfirm";
 
 function App() {
   return (
-    <div>
+    <div className="ansh">
 
       <Navbar/>
 
@@ -61,7 +60,6 @@ function App() {
         <Route path="/register" element={<Signup/>}/>
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/forgot-password" element={<ForgotPass/>}/>
-        <Route path="/checkout" element={<Checkout/>}/>
         <Route path="/order-confirm" element={<OrderConfirmationPage/>}/>
 
         <Route path="*" element={<PageNotFound/>}/>

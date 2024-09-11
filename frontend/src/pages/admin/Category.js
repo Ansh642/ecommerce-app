@@ -10,7 +10,7 @@ export default function Category() {
 
   const fetchCategories = async()=>{
     try{
-      const {data} = await axios.get('https://ecommerce-app-za0t.onrender.com/api/v1/category/categories');
+      const {data} = await axios.get('/api/v1/category/categories');
       if(data.success)
       {
         setcategories(data.allCategories);
@@ -32,7 +32,7 @@ export default function Category() {
   async function handler(e){
     e.preventDefault();
     try{
-      const {data} = await axios.post('/api/v1/category/create-category',{
+      const {data} = await axios.post('//api/v1/category/create-category',{
         name,
       });
 

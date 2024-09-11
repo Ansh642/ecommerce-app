@@ -12,7 +12,7 @@ export default function ForgotPass() {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        const {response} = await axios.post("https://ecommerce-app-za0t.onrender.com/api/v1/auth/forgot-password", {
+        const {response} = await axios.post("/api/v1/auth/forgot-password", {
           email,
           newpassword,
           question

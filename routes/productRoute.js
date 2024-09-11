@@ -5,7 +5,7 @@ const { auth, isAdmin } = require('../middleware/middleware');
 const { createProduct, getAllProduct, getProduct, searchProduct, findSingleProduct } = require('../controllers/product');
 
 
-router.post('/create-product',auth,isAdmin,createProduct);
+router.post('/create-product',createProduct);
 router.get('/get-products',getAllProduct);
 router.post('/get-product',getProduct);
 router.get('/search/:keywords',searchProduct);

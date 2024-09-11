@@ -11,11 +11,11 @@ export default function Home() {
   const { cart, setcart } = useContext(CartContext);
 
   const navigate = useNavigate();  
-  const [products, setproducts] = useState([]); // Initialize as an empty array
+  const [products, setproducts] = useState([]); 
 
   const getAllProducts = async () => {
     try {
-      const { data } = await axios.get("https://ecommerce-app-za0t.onrender.com/api/v1/product/get-products");
+      const { data } = await axios.get("/api/v1/product/get-products");
       if (data && data.allProducts) {
         setproducts(data.allProducts);
       } else {
@@ -25,7 +25,7 @@ export default function Home() {
     } catch (error) {
       console.log(error);
       setproducts([]); // Set as empty array in case of error
-      toast.error("Something Went Wrong");
+      //toast.error("Something Went Wrong");
     }
   };
 
@@ -59,22 +59,28 @@ export default function Home() {
         <h2 className="text-4xl font-semibold mb-4 flex items-center justify-center">Featured Products</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-6">
-          {products.length > 0 ? products.map((product) => (
+          {products?.length > 0 ? products.map((product) => (
             <div key={product._id} className="bg-white rounded-md overflow-hidden shadow-md h-96 hover:scale-105 hover:transition-all duration-150">
-              <img src={product.photo} alt={product.name} className="w-full cursor-pointer h-48 object-contain" onClick={() => navigate(`/product-overview/${product.name}`)} />
+              <img src={product.photo} alt={product.name} className="w-full cursor-pointer h-48 object-fill" onClick={() => navigate(`/product-overview/${product.name}`)} />
               <div className="p-4">
                 <h3 className="text-xl font-bold mb-2">{product.name}</h3>
                 <p className="text-gray-700 h-14">{shortenDescription(product.description, 8)}</p>
                 <div className="mt-7 flex justify-between items-center">
                   <span className="text-lg font-semibold">${product.price}</span>
                   <button onClick={() => {
-                    setcart([...cart, product]);
-                    localStorage.setItem('cart', JSON.stringify([...cart, product]));
-                    toast.success("Product Added Successfully")
-                  }}
-                    className="bg-blue-500 place-content-end text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">
-                    Add to Cart
-                  </button>
+                        const auth = JSON.parse(localStorage.getItem('auth')); // Retrieve auth data from localStorage (or wherever you're storing auth data)
+                        
+                        if (auth) {
+                          setcart([...cart, product]);
+                          localStorage.setItem('cart', JSON.stringify([...cart, product]));
+                          toast.success("Product Added Successfully");
+                        } else {
+                          toast.error("Please log in to add products to the cart"); 
+                        }
+                      }}
+                      className="bg-blue-500 place-content-end text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">
+                      Add to Cart
+                    </button>
                 </div>
               </div>
             </div>

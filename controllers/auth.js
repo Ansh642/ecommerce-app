@@ -55,7 +55,7 @@ exports.login = async (req, res) =>{
     try
     {
     const {email,password} = req.body;
-
+    
     if(!email || !password)
     {
         return res.status(400).json({
@@ -83,12 +83,8 @@ exports.login = async (req, res) =>{
 
         //create a token it returns a string 
         const token = JWT.sign(payload, process.env.JWT_SECRET, {
-            expiresIn: "1d",
+            expiresIn: "7d",
         });
-
-        // send the token in db
-        //user.token=token;
-        //user.password = null
 
         return res.status(200).json({
             success: true,

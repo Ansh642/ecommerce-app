@@ -4,57 +4,56 @@ require('dotenv').config();
 const Product = require('../models/Product');
 
 exports.createProduct = async (req,res)=>{
-    try{
-      const {name,description,price,category,quantity} = req.body;
-      const photo = req.files.photo;
+  try{
+    const {name,description,price,category,quantity} = req.body;
+    const photo = req.files.photo;
 
-      if(!name || !description || !price || !category || !quantity)
-      {
-        return res.status(400).json({
-            success: false,
-            message: 'Please fill in all required fields',
-        });
-      }
-
-      const categoryDetails = await Category.find({name:category});
-
-      if(!categoryDetails)
-      {
-        return res.status(400).json({
-          success: false,
-          message: 'No such category exists',
-        });
-      }
-
-      const imageDetails = await uploadImageToCloudinary(photo,process.env.FOLDER_NAME);
-
-      const product = new Product({
-        name,
-        description,
-        price,
-        category: categoryDetails[0]._id,
-        quantity,
-        photo: imageDetails.secure_url,
-      });
-      
-      await product.save();
-
-      return res.status(200).json({
-        success: true,
-        message:"Product created successfully",
-        product,
-      });
-      
-    }
-    catch(err)
+    if(!name || !description || !price || !category || !quantity)
     {
-    return res.status(500).json({
-        success:false,
-        message:"Error creating product",
-    });
-   }
-}
+      return res.status(400).json({
+          success: false,
+          message: 'Please fill in all required fields',
+      });
+    }
 
+    const categoryDetails = await Category.find({name:category});
+
+    if(!categoryDetails)
+    {
+      return res.status(400).json({
+        success: false,
+        message: 'No such category exists',
+      });
+    }
+
+    const imageDetails = await uploadImageToCloudinary(photo,process.env.FOLDER_NAME);
+
+    const product = new Product({
+      name,
+      description,
+      price,
+      category: categoryDetails[0]._id,
+      quantity,
+      photo: imageDetails.secure_url,
+    });
+    
+    await product.save();
+
+    return res.status(200).json({
+      success: true,
+      message:"Product created successfully",
+      product,
+    });
+    
+  }
+  catch(err)
+  {
+  return res.status(500).json({
+      success:false,
+      message:"Error creating product",
+  });
+ }
+}
 
 exports.getAllProduct = async(req,res)=>{
   try{

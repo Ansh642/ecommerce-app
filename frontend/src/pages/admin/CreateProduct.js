@@ -18,7 +18,7 @@ export default function CreateProduct() {
 
   const fetchCategories = async()=>{
     try{
-      const {data} = await axios.get('https://ecommerce-app-za0t.onrender.com/api/v1/category/categories');
+      const {data} = await axios.get('/api/v1/category/categories');
       if(data.success)
       {
         setcategories(data.allCategories);
@@ -159,26 +159,27 @@ export default function CreateProduct() {
         </div>
 
         <div className="mb-4">
-      <label htmlFor="category" className="block text-sm font-semibold text-gray-600">
-        Category
-      </label>
-      <select
-        id="category"
-        name="category"
-        onChange={(e)=>setcategory(e.target.value)}
-        className="w-full p-2 border rounded-md focus:outline-none focus:border-blue-500"
-        required
-      >
-        <option value="" disabled>
-          Select a category
-        </option>
-        {categories.map((category) => (
-          <option key={category._id} value={category._id}>
-            {category.name}
-          </option>
-        ))}
-      </select>
-    </div>
+            <label htmlFor="category" className="block text-sm font-semibold text-gray-600">
+              Category
+            </label>
+            <select
+              id="category"
+              name="category"
+              onChange={(e) => setcategory(e.target.value)}
+              className="w-full p-2 border rounded-md focus:outline-none focus:border-blue-500"
+              required
+            >
+              <option value="" disabled>
+                Select a category
+              </option>
+              {categories.map((category) => (
+                <option key={category._id} value={category._id}>
+                  {category.name}
+                </option>
+              ))}
+            </select>
+          </div>
+
         <div className="mb-4">
           <label htmlFor="description" className="block text-sm font-semibold text-gray-600">
             Description
@@ -206,6 +207,3 @@ export default function CreateProduct() {
     </div>
   )
 }
-
-
-

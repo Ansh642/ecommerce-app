@@ -1,1 +1,5 @@
-/* write your css here */
+*{
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+  }
+  

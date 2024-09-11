@@ -11,7 +11,7 @@ export default function Search() {
     // e.preventDefault();
 
     // try {
-    //     const { data } = await axios.get(`/api/v1/product/search/${search.keywords}`);
+    //     const { data } = await axios.get(`//api/v1/product/search/${search.keywords}`);
     //     setsearch({ ...search, result: data.similarProducts });
         
     // } 
